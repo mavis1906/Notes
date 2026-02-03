@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Notes Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header id="topHeader">
+    <h2>University Notes Portal</h2>
+  </header>
+
+  <nav id="appNav" class="hidden">
+    <button class="nav-link" onclick="showPage('viewPage')">View Notes</button>
+    <button class="nav-link" onclick="showPage('uploadPage')">Upload</button>
+    <button class="nav-link logout" onclick="location.reload()">Logout</button>
+  </nav>
+
+  <div class="main-card" id="authCard">
+    <h3 id="displayTitle">Sign In</h3>
+    <form id="authForm">
+      <div class="input-wrapper">
+        <input type="text" id="userInput" placeholder="Username" required>
+      </div>
+      <div class="input-wrapper">
+        <input type="password" id="passInput" placeholder="Password" required>
+        <button type="button" class="visibility-toggle" id="eyeButton" onclick="togglePasswordView()">SHOW</button>
+      </div>
+      <div class="form-extras" id="extraOptions">
+        <label class="check-container">
+          <input type="checkbox" id="rememberMe"> Keep me logged in
+        </label>
+        <a href="#" class="forgot-link" onclick="triggerRecovery()">Forgot?</a>
+      </div>
+      <button type="submit" class="action-button" id="submitBtn">Login</button>
+    </form>
+    <div class="switch-mode-box">
+      <p id="modeText">Need an account? <a class="switch-link" onclick="changeAuthMode()">Create one here</a></p>
+    </div>
+  </div>
+
+  <div id="uploadPage" class="main-card hidden">
+    <h3>Upload Course Notes (PDF)</h3>
+    <form id="uploadForm">
+      <input type="text" id="department" placeholder="Department (e.g Computer Science)" required>
+      <input type="text" id="course" placeholder="Course (e.g CSC 201)" required>
+      <input type="file" id="file" accept=".pdf" required>
+      <button type="submit" class="action-button">Upload Note</button>
+    </form>
+    <div id="existingNotes" class="history-list"></div>
+  </div>
+
+  <div id="viewPage" class="main-card hidden">
+    <h3>Select a Department</h3>
+    <select id="departmentSelect">
+      <option value="">Choose Department</option>
+    </select>
+    <div id="coursesContainer"></div>
+  </div>
+
+  <div id="finalGreeting" class="greeting-text"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
