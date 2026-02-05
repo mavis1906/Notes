@@ -13,8 +13,8 @@
   </header>
 
   <nav id="appNav" class="hidden">
-    <button class="nav-link" onclick="showPage('viewPage')">View Notes</button>
-    <button class="nav-link" onclick="showPage('uploadPage')">Upload</button>
+    <button class="nav-link" onclick="window.showPage('viewPage')">View Notes</button>
+    <button class="nav-link" onclick="window.showPage('uploadPage')">Upload</button>
     <button class="nav-link logout" onclick="location.reload()">Logout</button>
   </nav>
 
@@ -26,7 +26,7 @@
       </div>
       <div class="input-wrapper">
         <input type="password" id="passInput" placeholder="Password" required>
-        <button type="button" class="visibility-toggle" id="eyeButton" onclick="togglePasswordView()">SHOW</button>
+        <button type="button" class="visibility-toggle" id="eyeButton" onclick="window.togglePasswordView()">SHOW</button>
       </div>
       <div class="form-extras" id="extraOptions">
         <label class="check-container">
@@ -37,7 +37,7 @@
       <button type="submit" class="action-button" id="submitBtn">Login</button>
     </form>
     <div class="switch-mode-box">
-      <p id="modeText">Need an account? <a class="switch-link" onclick="changeAuthMode()">Create one here</a></p>
+      <p id="modeText">Need an account? <a class="switch-link" onclick="window.changeAuthMode()">Create one here</a></p>
     </div>
   </div>
 
@@ -62,6 +62,6 @@
 
   <div id="finalGreeting" class="greeting-text"></div>
 
-  <script src="main.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>
