@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: whitesmoke;
+  color: #222;
+}
+
+.ai-page {
+  width: 85%;
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+.ai-header {
+  background-color: navy;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.ai-header button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.ai-header button:hover {
+  color: lightgray;
+}
+
+.ai-label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.ai-header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.ai-header p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.ai-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ai-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px lightgray;
+  text-align: center;
+}
+
+.ai-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  background-color: navy;
+  color: white;
+  border-radius: 6px;
+  font-size: 24px;
+}
+
+.ai-card h2 {
+  color: navy;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.ai-card p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.file-selector {
+  margin: 25px 0 15px;
+}
+
+.file-selector select {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid whitesmoke;
+  border-radius: 6px;
+  background-color: whitesmoke;
+  font-size: 16px;
+}
+
+.file-selector select:focus {
+  outline: none;
+  border-color: blue;
+  background-color: white;
+}
+
+#analyzeButton {
+  width: 100%;
+  padding: 15px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+#analyzeButton:hover {
+  background-color: navy;
+}
+
+#aiStatus {
+  margin-top: 15px;
+  font-size: 14px;
+  color: navy;
+}
+
+.result-card {
+  min-height: 300px;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.result-header h2 {
+  margin: 0;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: blue;
+}
+
+#aiResponse {
+  min-height: 180px;
+  padding: 20px;
+  background-color: whitesmoke;
+  border-radius: 6px;
+  display: block;
+  text-align: left;
+}
+
+#aiResponse > p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.ai-section {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border-left: 4px solid navy;
+}
+
+.ai-section:last-child {
+  margin-bottom: 0;
+}
+
+.ai-section h3 {
+  color: navy;
+  font-size: 18px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.ai-section p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.ai-section p:last-child {
+  margin-bottom: 0;
+}
+
+.ai-section ul,
+.ai-section ol {
+  margin-left: 20px;
+  color: #555;
+}
+
+.ai-section li {
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding-left: 5px;
+}
+
+.ai-section li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 750px) {
+  .ai-page {
+    width: 90%;
+    margin: 25px auto;
+  }
+
+  .ai-content {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-header h1 {
+    font-size: 27px;
+  }
+}

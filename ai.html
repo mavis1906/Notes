@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Hub</title>
+  <link rel="stylesheet" href="ai.css">
+</head>
+<body>
+
+  <main class="ai-page">
+    <header class="ai-header">
+      <button onclick="window.location.href='index.html'">←</button>
+
+      <div>
+        <span class="ai-label">AI HUB</span>
+        <h1>Study with AI</h1>
+        <p>Upload your notes and let AI help you understand the material.</p>
+      </div>
+    </header>
+
+    <section class="ai-content">
+      <div class="ai-card upload-card">
+        <div class="ai-icon">✦</div>
+        <h2>Analyze your notes</h2>
+        <p>Select a PDF from your uploaded study materials.</p>
+
+        <div class="file-selector">
+          <select id="noteSelect">
+            <option value="">Select a note</option>
+          </select>
+        </div>
+
+        <button id="analyzeButton">Analyze Notes</button>
+
+        <p id="aiStatus"></p>
+      </div>
+
+      <div class="ai-card result-card">
+        <div class="result-header">
+          <h2>AI Response</h2>
+          <span class="status-dot"></span>
+        </div>
+
+        <div id="aiResponse">
+          <p>Your AI-generated summary and study assistance will appear here.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="ai.js"></script>
+</body>
+</html>
