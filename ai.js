@@ -361,7 +361,7 @@ analyzeButton.addEventListener("click", async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/ai/analyze",
+      "https://notes-pjfh.onrender.com/api/ai/analyze",
       {
         method: "POST",
         headers: {
