@@ -1,17 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl = "YOUR_SUPABASE_URL";
+const supabaseAnonKey = "YOUR_SUPABASE_ANON_KEY";
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const noteSelect = document.getElementById("noteSelect");
-
 const analyzeButton = document.getElementById("analyzeButton");
-
 const aiStatus = document.getElementById("aiStatus");
-
 const aiResponse = document.getElementById("aiResponse");
 
 async function getAllFiles(path = "") {
@@ -88,9 +84,7 @@ async function loadNotes() {
       const option = document.createElement("option");
 
       option.value = note.fileUrl;
-
       option.textContent = `${note.course} - ${note.fileName}`;
-
       option.dataset.fileName = note.fileName;
 
       noteSelect.appendChild(option);
@@ -99,11 +93,11 @@ async function loadNotes() {
     if (notes.length === 0) {
       aiStatus.textContent = "You have no uploaded notes yet.";
     } else {
-      aiStatus.textContent = `${notes.length} note${notes.length === 1 ? "" : "s"} available.`;
+      aiStatus.textContent =
+        `${notes.length} note${notes.length === 1 ? "" : "s"} available.`;
     }
   } catch (error) {
     console.error(error);
-
     aiStatus.textContent = "Unable to load your notes.";
   }
 }
@@ -132,7 +126,6 @@ function formatAIResponse(text) {
     heading.textContent = title;
 
     section.appendChild(heading);
-
     aiResponse.appendChild(section);
 
     return section;
@@ -148,7 +141,6 @@ function formatAIResponse(text) {
     paragraph.textContent = text;
 
     currentSection.appendChild(paragraph);
-
     currentList = null;
   }
 
@@ -164,7 +156,6 @@ function formatAIResponse(text) {
       currentList.parentElement !== targetSection
     ) {
       currentList = document.createElement(numbered ? "ol" : "ul");
-
       currentList.dataset.type = numbered ? "numbered" : "bullet";
 
       targetSection.appendChild(currentList);
@@ -192,7 +183,6 @@ function formatAIResponse(text) {
         answerSection = document.createElement("section");
 
         answerSection.className = "ai-section ai-answers";
-
         answerSection.style.display = "none";
 
         const heading = document.createElement("h3");
@@ -200,18 +190,15 @@ function formatAIResponse(text) {
         heading.textContent = title;
 
         answerSection.appendChild(heading);
-
         aiResponse.appendChild(answerSection);
 
         currentSection = answerSection;
-
         currentList = null;
 
         continue;
       }
 
       currentSection = createSection(title);
-
       currentList = null;
 
       continue;
@@ -221,7 +208,6 @@ function formatAIResponse(text) {
       answerSection = document.createElement("section");
 
       answerSection.className = "ai-section ai-answers";
-
       answerSection.style.display = "none";
 
       const heading = document.createElement("h3");
@@ -229,22 +215,19 @@ function formatAIResponse(text) {
       heading.textContent = "Answers";
 
       answerSection.appendChild(heading);
-
       aiResponse.appendChild(answerSection);
 
       currentSection = answerSection;
-
       currentList = null;
 
       continue;
     }
 
-    if (/^(answer\s*\d+|answer\s+\d+)\s*:/i.test(line)) {
+    if (/^answer\s*\d+\s*:/i.test(line)) {
       if (!answerSection) {
         answerSection = document.createElement("section");
 
         answerSection.className = "ai-section ai-answers";
-
         answerSection.style.display = "none";
 
         const heading = document.createElement("h3");
@@ -252,12 +235,11 @@ function formatAIResponse(text) {
         heading.textContent = "Answers";
 
         answerSection.appendChild(heading);
-
         aiResponse.appendChild(answerSection);
       }
 
       const answerText = cleanText(
-        line.replace(/^(answer\s*\d+|answer\s+\d+)\s*:\s*/i, "")
+        line.replace(/^answer\s*\d+\s*:\s*/i, "")
       );
 
       addListItem(answerText, true, answerSection);
@@ -310,9 +292,7 @@ function formatAIResponse(text) {
     const showAnswersButton = document.createElement("button");
 
     showAnswersButton.textContent = "Show Answers";
-
     showAnswersButton.type = "button";
-
     showAnswersButton.style.marginTop = "20px";
     showAnswersButton.style.padding = "12px 20px";
     showAnswersButton.style.backgroundColor = "blue";
@@ -343,9 +323,7 @@ function formatAIResponse(text) {
 
 analyzeButton.addEventListener("click", async () => {
   const selectedOption = noteSelect.options[noteSelect.selectedIndex];
-
   const fileUrl = noteSelect.value;
-
   const fileName = selectedOption?.dataset.fileName;
 
   if (!fileUrl) {
@@ -356,7 +334,6 @@ analyzeButton.addEventListener("click", async () => {
   analyzeButton.disabled = true;
 
   aiStatus.textContent = "AI is analyzing your notes...";
-
   aiResponse.innerHTML = "<p>Reading your study material...</p>";
 
   try {
